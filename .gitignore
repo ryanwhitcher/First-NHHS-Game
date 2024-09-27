@@ -3,7 +3,6 @@ build/
 
 # Ignore library binary files
 libs/SFML/lib/*
-libs/imgui-sfml/lib/*
 
 # Ignore Visual Studio project files
 *.vcxproj
