@@ -37,5 +37,5 @@ endif()
 
 # Optional: Recommend the use of vcpkg for dependency management
 if (WIN32 AND NOT SFML_FOUND)
-    message(STATUS "SFML not found. Consider using vcpkg to install SFML automatically.")
+    message(STATUS "SFML not found. Consider(nvm) using vcpkg to install SFML automatically.")
 endif()
