@@ -1,2 +1,2 @@
-# First NHHS Game!
+# First NHHS Game
 
