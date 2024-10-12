@@ -33,7 +33,7 @@ int main() {
         handleEvents(window);  // Pass 'window' by reference to 'handleEvents', so the same window object is used
 
         player.handleInput(speed);  // Player input affects movement
-
+        
         window.clear(sf::Color(255, 255, 0));  // Clear the window with a yellow background
 
         player.draw(window);  // Pass 'window' by reference to the player's draw function, which renders on the same window
