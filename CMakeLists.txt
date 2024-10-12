@@ -18,26 +18,29 @@ elseif(UNIX)
 endif()
 
 # Include directories
-include_directories(include)  # Includes any project-specific headers
+include_directories(${CMAKE_SOURCE_DIR}/include)  # Includes project-specific headers in 'include/' folder
 
 # Source files
-file(GLOB_RECURSE SOURCES src/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)  # Recursively gather all .cpp files in 'src/'
+
+# Header files (ensure headers are visible in the solution explorer)
+file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/include/*.h)
 
 # Add executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})  # Add both sources and headers to the executable
 
 # Link SFML
 target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics)
 
 # Post-build steps for Windows (to copy SFML DLLs)
 if (WIN32)
-    # Ensure DLLs are copied to the output directory
-    file(COPY "${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-system-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
-    file(COPY "${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-window-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
-    file(COPY "${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-graphics-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
+    # Ensure DLLs are copied to the output directory after build
+    file(COPY "${SFML_DIR}/../../../bin/sfml-system-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
+    file(COPY "${SFML_DIR}/../../../bin/sfml-window-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
+    file(COPY "${SFML_DIR}/../../../bin/sfml-graphics-2.dll" DESTINATION ${CMAKE_BINARY_DIR})
 endif()
 
-# Suggest using vcpkg for automatic SFML installation (optional)
+# Optional message if SFML is not found (Windows specific)
 if (WIN32 AND NOT SFML_FOUND)
     message(STATUS "SFML not found. Consider using vcpkg to install SFML automatically.")
 endif()
