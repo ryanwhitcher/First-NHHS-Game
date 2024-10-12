@@ -36,6 +36,8 @@ void Player::handleInput(float speed) {
     Using 'sf::Keyboard::isKeyPressed' allows us to detect if a key is being held down, which is more suitable for continuous movement.
     This approach provides real-time responsiveness without needing to manage key press events manually.
     */
+
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
         sprite.move(0, -speed);  // Move the sprite upwards by 'speed' units
     }
@@ -49,6 +51,8 @@ void Player::handleInput(float speed) {
         sprite.move(speed, 0);  // Move the sprite to the right
     }
 }
+
+
 
 /*
 The draw function is kept separate to follow the principle of single responsibility, ensuring the Player class is only responsible for its own rendering logic.
