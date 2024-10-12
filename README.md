@@ -1,3 +1,3 @@
-# First NHHS Game
+# testing stuff out
 
-The NHHS Game Development Club's first project.
+this was used to help get more familiar with c++ and sfml
