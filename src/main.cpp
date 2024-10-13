@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 #include <SFML/Graphics.hpp>
 
 int main() {
@@ -20,3 +21,5 @@ int main() {
 
     return 0;
 }
+=======
+>>>>>>> Stashed changes
